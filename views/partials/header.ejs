@@ -6,66 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="/assets/css/custom.css">-->
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/home.css">
     <title><%= title %></title>
 </head>
-<style>
-    .table-wrapper {
-        margin-top: 50px;
-    }
 
-    .player-img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .add-player-form {
-        margin-top: 50px;
-    }
-    .navbar{
-      background: #124734;
-    }
-    .nav-header{
-      background:#222222;
-    }
-    .title-text{
-      color: #FFCE00;
-      font-family:Quadon-Light,"Open Sans",Arial,Helvetica,Verdana,sans-serif
-      padding-left:20px;
-      margin-left:40px;
-    }
-    .bg-image{
-      /* The image used */
-      background-image: url("housing.jpg");
-
-      /* Add the blur effect */
-      filter: blur(5px);
-      -webkit-filter: blur(5px);
-
-      /* Full height */
-      height: 100%;
-
-      /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      z-index = 1
-    }
-
-    .page-wrapper{
-        top: 0;
-        left: 0;
-        position: fixed;
-        right: 0;
-        z-index: 2;
-    }
-</style>
 <body>
 <div class="bg-image"></div>
 <div class="page-wrapper">
-    <nav class="navbar navbar-light ">
+    <nav class="nav-primary navbar navbar-light ">
         <img src="uo-logo.svg" alt="">
     </nav>
-    <nav class="nav-header navbar navbar-light ">
+    <nav class="nav-secondary navbar navbar-light ">
       <h1 class="title-text">Housing Portal</h1>
     </nav>
