@@ -22,10 +22,50 @@
     .add-player-form {
         margin-top: 50px;
     }
+    .navbar{
+      background: #124734;
+    }
+    .nav-header{
+      background:#222222;
+    }
+    .title-text{
+      color: #FFCE00;
+      font-family:Quadon-Light,"Open Sans",Arial,Helvetica,Verdana,sans-serif
+      padding-left:20px;
+      margin-left:40px;
+    }
+    .bg-image{
+      /* The image used */
+      background-image: url("housing.jpg");
+
+      /* Add the blur effect */
+      filter: blur(5px);
+      -webkit-filter: blur(5px);
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index = 1
+    }
+
+    .page-wrapper{
+        top: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        z-index: 2;
+    }
 </style>
 <body>
+<div class="bg-image"></div>
 <div class="page-wrapper">
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1"><a href="/">Socka Players</a></span>
-        <a class="float-right" href="/add" title="Add a New Player">Add a Player</a>
+    <nav class="navbar navbar-light ">
+        <img src="uo-logo.svg" alt="">
+    </nav>
+    <nav class="nav-header navbar navbar-light ">
+      <h1 class="title-text">Housing Portal</h1>
     </nav>

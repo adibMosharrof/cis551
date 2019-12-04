@@ -1,0 +1,39 @@
+<style>
+  .housing_complex{
+    height:400px
+  }
+  .housing_complex img{
+      max-width: 100%;
+      max-height: 100%;
+  }
+  .card-body{
+    height:100%
+  }
+  .container{
+    
+  }
+
+</style>
+
+<% include partials/header.ejs %>
+<div class="container">
+    <div class="row">
+        <% if (housing_complexes.length > 0) {%>
+            <% housing_complexes.forEach((housing_complex, index) => { %>
+              <div class="col-sm card housing_complex">
+                  <div class="card-body">
+                    <h3 class="card-title"><%= housing_complex.name %></h3>
+                    <div>
+                      <img src="<%= housing_complex.name%>.jpg" alt="">
+                    </div>
+                  </div>
+              </div>
+            <% }) %>
+        <% } else { %>
+            <p class="text-center">No housing complexes found</p>
+        <% } %>
+    </div>
+</div>
+
+</body>
+</html>
