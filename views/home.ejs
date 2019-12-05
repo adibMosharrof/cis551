@@ -10,9 +10,9 @@
 
         <% if (housing_complexes.length > 0) {%>
             <% housing_complexes.forEach((housing_complex, index) => { %>
-              <div class="col-sm card  housing_complex">
+              <div class="col-sm card  housing_complex" onclick="myGo(<%= housing_complex.id%>)">
                   <div class="card-body">
-                    <h3 class="card-title"><%= housing_complex.name %></h3>
+                    <h3 class="card-title card-link"><%= housing_complex.name %></h3>
                     <div>
                       <img src="<%= housing_complex.name%>.jpg" alt="">
                     </div>
@@ -25,4 +25,9 @@
     </div>
     </div>
 </div>
+<script type="text/javascript">
+  function myGo(id){
+    window.location = '/housing_complex/'+id;
+  }
+</script>
 <% include partials/footer.ejs %>

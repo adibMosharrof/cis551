@@ -1,16 +1,13 @@
+const pool = require('../db/db')
 module.exports = {
     getHomePage: (req, res) => {
-        let query = "SELECT * FROM `housing_complex` ORDER BY id ASC"; // query database to get all the players
-
-        // execute query
-        db.query(query, (err, result) => {
-            if (err) {
-                res.redirect('/');
-            }
-            res.render('home.ejs', {
-                title: "Welcome to Socka | View Players"
-                ,housing_complexes: result
-            });
+        let query = "SELECT * FROM housing_complex ORDER BY id ASC"; // query database to get all the players
+        console.log(query)
+        pool.query(query).then((result)=>{
+          console.log('result',result)
+          res.render('home.ejs', {
+              housing_complexes: result
+          });
         });
-    },
+    }
 };
