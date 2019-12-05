@@ -6,7 +6,7 @@ const app = express();
 
 const {getHomePage} = require('./routes/home');
 const {addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
-const port = 2000;
+const port = process.env.PORT || 2000;
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
