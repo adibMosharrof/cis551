@@ -5,17 +5,21 @@
 <% include partials/header.ejs %>
 <div class="container">
   <div class="card container-card">
-    <h1 class="card-title">Select a housing complex</h1>
+    <h1 class="card-title">Select a housing complex to see details</h1>
     <div class="row card-deck">
 
         <% if (housing_complexes.length > 0) {%>
             <% housing_complexes.forEach((housing_complex, index) => { %>
               <div class="col-sm card  housing_complex" onclick="myGo(<%= housing_complex.id%>)">
+                  <img class="card-img-top" src="/<%= housing_complex.name%>.jpg" alt="">
                   <div class="card-body">
                     <h3 class="card-title card-link"><%= housing_complex.name %></h3>
-                    <div>
-                      <img src="<%= housing_complex.name%>.jpg" alt="">
-                    </div>
+                    <!-- <div> -->
+                    <!-- </div> -->
+                    <p class="">
+                      Monthly rates start at <span class="dollar-amount">$<%=housing_complex.min_rent  %></span> per unit
+                    </p>
+                    <h5 class="card-subtitle">Available Units <%=housing_complex.available_units  %></h5>
                   </div>
               </div>
             <% }) %>
@@ -27,7 +31,7 @@
 </div>
 <script type="text/javascript">
   function myGo(id){
-    window.location = '/housing_complex/'+id;
+    window.location = '/housing_complex/'+id + '/work_orders_summary';
   }
 </script>
 <% include partials/footer.ejs %>

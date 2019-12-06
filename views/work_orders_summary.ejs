@@ -1,0 +1,55 @@
+<style>
+</style>
+
+<% include partials/header.ejs %>
+<div class="container">
+  <div class="card container-card">
+    <h1 class="card-title"></h1>
+    <% include partials/housing_complex_nav.ejs %>
+
+    <div class="row card-deck">
+        <div class="col-sm card ">
+            <div class="card-body">
+              <h3 class="card-title card-link">Common Work Orders</h3>
+              <table class="table">
+                <thead>
+                  <th>Description</th>
+                  <th>Count</th>
+                </thead>
+                <tbody>
+                  <% common_work_orders.forEach((work_order, index) => { %>
+                    <tr>
+                      <td><%= work_order.description %> </td>
+                      <td><%= work_order.count %></td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+        </div>
+        <div class="col-sm card ">
+            <div class="card-body">
+              <h3 class="card-title card-link">Work Orders by Buildings</h3>
+              <table class="table">
+                <thead>
+                  <th>Building</th>
+                  <th>Total Cost</th>
+                  <th>Count</th>
+                </thead>
+                <tbody>
+                  <% expensive_work_orders.forEach((work_order, index) => { %>
+                    <tr>
+                      <td><%= work_order.id %> </td>
+                      <td>$<%= work_order.total_cost.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') %></td>
+                      <td><%= work_order.count %></td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<% include partials/footer.ejs %>

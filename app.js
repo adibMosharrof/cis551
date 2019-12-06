@@ -5,7 +5,9 @@ const path = require('path');
 const app = express();
 
 const {getHomePage} = require('./routes/home');
-const {getHousingComplexPage} = require('./routes/housing_complex');
+const {getWorkOrdersSummaryPage} = require('./routes/work_orders_summary');
+const {getWorkOrdersMonthlyPage} = require('./routes/work_orders_monthly');
+const {getPackagesPage, getPackageTableData} = require('./routes/packages');
 const {addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
 const port = process.env.PORT || 5000;
 
@@ -40,7 +42,10 @@ app.use(express.static(path.join(__dirname, 'public'))); // configure express to
 // routes for the app
 
 app.get('/', getHomePage);
-app.get('/housing_complex/:housing_complex_id', getHousingComplexPage);
+app.get('/housing_complex/:housing_complex_id/work_orders_summary', getWorkOrdersSummaryPage);
+app.get('/housing_complex/:housing_complex_id/work_orders_monthly', getWorkOrdersMonthlyPage);
+app.get('/housing_complex/:housing_complex_id/packages', getPackagesPage);
+app.get('/packages/:housing_complex_id/:dates', getPackageTableData)
 app.get('/add', addPlayerPage);
 app.get('/edit/:id', editPlayerPage);
 app.get('/delete/:id', deletePlayer);

@@ -1,0 +1,78 @@
+<style>
+</style>
+
+<% include partials/header.ejs %>
+<div class="container">
+  <div class="card container-card height-100">
+    <h1 class="card-title"></h1>
+    <% include partials/housing_complex_nav.ejs %>
+    <div class="row card-deck height-100">
+      <div class="card table-container height-100">
+        <form class="" action="index.html" method="post">
+
+          <div class="form-row col-md-6">
+              <!-- <div class="form-group col-md-8"> -->
+                <label for="date-range" class="col">Select Dates to load table data</label>
+                <input  onSelect="dateSelect" id="date-range" name='date-range' type='text' class='datepicker-here col' data-language='en' />
+              <!-- </div> -->
+          </div>
+
+        </form>
+        <div class="height-100">
+          <table id="packages-table" class="table table-striped table-bordered"></table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    var datatable = $('#packages-table').DataTable({
+        columns: [
+            { data: "details", "title":"Details" },
+            { data: "name" , "title":"Student Name" },
+            { data: "date" , "title":"Date",
+              render:function(data, type, row){
+                if(type === "sort" || type === "type"){
+                    return data;
+                }
+                return moment(data).format("YYYY-MM-DD");
+              }
+            },
+            { data: "unit_number" , "title":"Unit Number" }
+        ],
+        "sScrollY": "270px",
+        "bScrollCollapse": true
+    });
+
+
+    var housing_complex_id = JSON.parse('<%- JSON.stringify(housing_complex.id) %>')
+
+    $('#date-range').datepicker({
+      dateFormat:"yyyy-mm-dd",
+      autoClose:true,
+      range:true,
+      onSelect: function(dates,b,c){
+        if(dates.includes(",")){
+          $.get({
+            url:`/packages/${housing_complex_id}/${dates}`,
+            success:function(result){
+              console.log(result)
+              datatable.clear().rows.add(result.tableData).draw();
+
+            }
+          })
+        }
+      }
+    });
+    var datepicker = $('#date-range').datepicker().data('datepicker');
+    console.log(datepicker)
+    var defaultDates = [moment("2019-05-01").toDate(),moment("2019-09-01").toDate()]
+    datepicker.selectDate(defaultDates)
+
+  } );
+
+</script>
+<% include partials/footer.ejs %>

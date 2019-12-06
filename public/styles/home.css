@@ -9,6 +9,7 @@
   /* height:400px; */
   background-color:#F2F5DD;
   border:0px;
+  cursor:pointer;
 }
 .housing_complex img{
     max-width: 100%;
@@ -17,6 +18,23 @@
   /* margin-top:100px; */
   background-color:#F2F5DD;
   padding-top:25px;
-  padding-bottom:100px;
+  padding-bottom:25px;
+  height:75%;
+}
+
+.dollar-amount{
+  font-size: 1.3rem;
+  font-weight:bold;
+}
+
+.card-deck{
+  margin-top:15px;
+}
+
+.height-100{
   height:100%;
+}
+
+.table-container{
+  padding:20px
 }

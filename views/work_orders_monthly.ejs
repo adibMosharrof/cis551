@@ -1,0 +1,64 @@
+<style>
+</style>
+
+<% include partials/header.ejs %>
+<div class="container">
+  <div class="card container-card height-100">
+    <h1 class="card-title"></h1>
+    <% include partials/housing_complex_nav.ejs %>
+    <div class="row card-deck height-100">
+      <div class="card">
+        <div class="height-100">
+          <canvas id="lineChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var ctxL = document.getElementById("lineChart").getContext('2d');
+  var graphData = JSON.parse('<%- JSON.stringify(data) %>')
+  var labels = graphData.map(item => item.month)
+  var values = graphData.map(item => item.monthly_cost)
+  console.log(graphData)
+  var myLineChart = new Chart(ctxL, {
+  type: 'line',
+  data: {
+  labels: labels,
+  datasets: [
+  {
+  label: "Monthy Work Order Cost",
+  data: values,
+  backgroundColor: [
+  'rgba(255, 247, 88, 1)',
+  ],
+  borderColor: [
+  'rgba(143, 214, 147, 1)',
+  ],
+  borderWidth: 2
+  }
+  ]
+  },
+  options: {
+  responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Cost'
+      }
+    }],
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Month'
+      }
+    }],
+  }
+  }
+  });
+
+</script>
+<% include partials/footer.ejs %>
