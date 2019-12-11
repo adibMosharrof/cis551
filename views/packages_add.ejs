@@ -1,0 +1,44 @@
+<style>
+</style>
+
+<% include partials/header.ejs %>
+<div class="container">
+  <div class="card container-card height-100">
+    <h1 class="card-title"></h1>
+    <% include partials/housing_complex_nav.ejs %>
+    <div class="row card-deck height-100">
+      <div class="card">
+          <form class="add-player-form" action="/packages_add" method="post" >
+              <div class="form-row justify-content-center">
+                  <div class="form-group col-md-6">
+                    <h3 class="card-title row col-md-6 justify-content-center form-group">Add Package</h3>
+                  </div>
+              </div>
+              <div class="form-row justify-content-center">
+                  <div class="form-group col-md-6">
+                      <input type="text" class="form-control" name="details" id="details" placeholder="Details" required>
+                  </div>
+              </div>
+              <div class="form-row justify-content-center">
+                  <div class="form-group col-md-6">
+                  <input placeholder="Date"  id="date" name='date' type='text' class='datepicker-here col' data-language='en' data-date-format="yyyy-mm-dd" />
+                  </div>
+              </div>
+              <div class="form-row justify-content-center">
+                  <div class="form-group col-md-6">
+                      <input type="number" class="form-control" name="student_unit_id" id="student_unit_id" placeholder="Student Unit Number (1-71)" min="1" max="71" required>
+                  </div>
+              </div>
+              <div class="form-row justify-content-center">
+                  <div class="form-group col-md-6">
+                    <input type="hidden" id="housing_complex_id" name="housing_complex_id" value="<%= housing_complex.id %>">
+                    <button type="submit" class="btn btn-success float-right">Add Package</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% include partials/footer.ejs %>
