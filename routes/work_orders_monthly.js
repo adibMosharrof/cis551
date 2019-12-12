@@ -21,7 +21,9 @@ module.exports = {
         }).then(()=>{
             res.render('work_orders_monthly.ejs', {
               data:data,
-              housing_complex:housing_complex[0]
+              housing_complex:housing_complex[0],
+
+              menu_id:"menu-2"
             });
           })
         }

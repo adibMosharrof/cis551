@@ -10,21 +10,30 @@
       <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item" id="menu-1">
         <a class="nav-link" href="/housing_complex/<%= housing_complex.id %>/work_orders_summary">Work Orders Summary</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="menu-2">
         <a class="nav-link" href="/housing_complex/<%= housing_complex.id %>/work_orders_monthly">Work Orders Monthly</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="menu-3">
         <a class="nav-link" href="/housing_complex/<%= housing_complex.id %>/packages">Packages</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="menu-4">
         <a class="nav-link" href="/housing_complex/<%= housing_complex.id %>/work_orders_add">Add Work Orders</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="menu-5">
         <a class="nav-link" href="/housing_complex/<%= housing_complex.id %>/packages_add">Add Package</a>
       </li>
     </ul>
   </div>
 </nav>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    var menu_id = JSON.parse('<%- JSON.stringify(menu_id) %>')
+    $('#'+ menu_id).addClass('active')
+  })
+
+
+</script>

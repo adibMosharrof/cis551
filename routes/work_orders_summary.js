@@ -47,7 +47,8 @@ module.exports = {
               common_work_orders: common_work_orders,
               expensive_work_orders: expensive_work_orders,
               graph:graph,
-              housing_complex: housing_complex[0]
+              housing_complex: housing_complex[0],
+              menu_id:"menu-1"
                 //available_units: result[0].available_units
             });
           })

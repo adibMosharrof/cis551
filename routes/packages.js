@@ -10,7 +10,9 @@ module.exports = {
           housing_complex = result
         }).then(()=>{
             res.render('packages.ejs', {
-              housing_complex:housing_complex[0]
+              housing_complex:housing_complex[0],
+
+              menu_id:"menu-3"
             });
           })
       },
@@ -41,7 +43,8 @@ module.exports = {
           housing_complex = result
         }).then(()=>{
             res.render('packages_add.ejs', {
-              housing_complex:housing_complex[0]
+              housing_complex:housing_complex[0],
+              menu_id:"menu-5"
             });
           })
         },

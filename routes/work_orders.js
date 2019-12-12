@@ -11,7 +11,8 @@ module.exports = {
           housing_complex = result
         }).then(()=>{
             res.render('work_orders_add.ejs', {
-              housing_complex:housing_complex[0]
+              housing_complex:housing_complex[0],
+              menu_id:"menu-4"
             });
           })
         },
